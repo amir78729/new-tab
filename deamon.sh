@@ -16,7 +16,7 @@ fi
 
 # Start the server.js process with PM2
 echo "Starting $SCRIPT_NAME with PM2..."
-pm2 start $SCRIPT_NAME --name $PROCESS_NAME
+pm2 start $SCRIPT_NAME --name $PROCESS_NAME -f
 
 # Save PM2 process list
 echo "Saving PM2 process list..."
