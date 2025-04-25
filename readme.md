@@ -1,6 +1,6 @@
 # New Tab HTML Server with PM2 Daemon
 
-This project serves a custom HTML file that dynamically displays the current time, including hours, minutes, and seconds, designed to be used as a **new tab page** in your browser. The page features stylish typography and positioning, making it both functional and visually appealing. The web server is managed using PM2 to run as a daemon and start automatically on system boot.
+This project serves a custom HTML file that dynamically displays the current time, including hours, minutes, and seconds, designed to be used as a **new tab page** in your browser. The page supports both dark and light color schemes based on the user's system preferences. The web server is managed using PM2 to run as a daemon and start automatically on system boot.
 
 ---
 
@@ -12,7 +12,9 @@ This project serves a custom HTML file that dynamically displays the current tim
   - Large font size for hours and minutes.
   - Subtle, slightly smaller font for seconds, positioned with relative alignment.
   - Seconds styled with muted gray (`#333`) for contrast.
-- Fully responsive, styled with JetBrains Mono font, a black background, and white text.
+- **Automatic Color Scheme:** Automatically adapts to your system's light or dark color scheme preferences.
+  - **Dark Mode:** Black background with white text.
+  - **Light Mode:** White background with black text.
 - Runs on a simple Node.js server and serves the page locally at `http://localhost:1378`.
 - Managed using PM2 for daemonization and startup automation.
 
@@ -75,6 +77,22 @@ To use this as your browser's new tab page:
 
 ---
 
+## Screenshots
+
+### Dark Mode
+
+The new tab page in dark mode with a black background and white text:
+![Dark Mode](./dark.png)
+_Figure 1: Dark mode interface._
+
+### Light Mode
+
+The new tab page in light mode with a white background and black text:
+![Light Mode](./light.png)
+_Figure 2: Light mode interface._
+
+---
+
 ## Verifying the Setup
 
 After running `deamon.sh`, the server will be:
@@ -96,28 +114,16 @@ You can manage the server using PM2 commands:
 
 - **Restart the server**:
   ```bash
-  pm2 restart new-tab
+  pm2 restart html-server
   ```
 - **Stop the server**:
   ```bash
-  pm2 stop new-tab
+  pm2 stop html-server
   ```
 - **Delete the server process**:
   ```bash
-  pm2 delete new-tab
+  pm2 delete html-server
   ```
-
----
-
-## File Structure
-
-```plaintext
-.
-├── index.html       # The HTML file dynamically displaying hours, minutes, and seconds
-├── server.js        # The Node.js server script
-├── deamon.sh        # Script to set up the server as a PM2-managed daemon
-└── README.md        # Project documentation
-```
 
 ---
 
@@ -129,4 +135,4 @@ You can manage the server using PM2 commands:
 
 ---
 
-With this setup, you'll have a sleek, dynamic new tab page to display the current time. Let me know if you need further assistance or enhancements!
+With this setup, you’ll have a personalized and stylish new tab page that adapts to your system's color scheme. Let me know if there’s anything else to refine!
