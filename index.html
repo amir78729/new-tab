@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Time</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'JetBrains Mono', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #time {
+            font-size: 5rem;
+            position: relative;
+            line-height: 1;
+        }
+        #seconds {
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            font-size: 2.5rem;
+            transform: translate(1rem, -50%);
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="time">
+        <div id="hours"></div>
+        <div id="minutes"></div>
+        <div id="seconds"></div>
+    </div>
+
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+        }
+
+        updateTime();
+        setInterval(updateTime, 1000); // Updates every minute
+    </script>
+</body>
+</html>
